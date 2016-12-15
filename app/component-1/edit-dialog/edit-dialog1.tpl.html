@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Edit task</h2>
+        </div>
+        <div class="modal-body">
+            <form name="editForm">
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input ng-model="updatedTask.title" class="form-control" name="title" ng-required="true">
+                    <p ng-show="updatedTask.title.$invalid" class="help-block">
+                    <font size="2"></font>This field is required!</p>
+                </div>
+                <div class="form-group">
+                    <label>Category:</label>
+                    <select ng-model="updatedTask.category" class="form-control" name="category" ng-required="true">
+                        <option value="IT">Anniversary</option>
+                        <option value="LIFE">Appointment</option>
+                        <option value="business">Business</option>
+                        <option value="XMASS">Celebration</option>
+                        <option value="hobby">Hobby</option>
+                        <option value="phone">Phone</option>
+                        <option value="relax">Relax</option>
+                        <option value="reminder">Reminder</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="travel">Travel</option>
+                        <option value="work">Work</option>
+                        <option value="other">OTHER</option>
+                    </select>
+                    <p ng-show="updatedTask.category.$invalid" class="help-block">
+                    <font size="2"></font>This field is required!</p>
+                </div>
+                <div class="form-group">
+                    <label>Priority:</label>
+                     <select ng-model="updatedTask.priority" class="form-control" name="priority" ng-required="true">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <p ng-show="updatedTask.priority.$invalid" class="help-block">
+                    <font size="2"></font>This field is required!</p>
+                </div>
+                <div class="form-group">
+                    <label>Content:</label>
+                    <input ng-model="updatedTask.content" class="form-control" name="content" ng-required="true">
+                    <p ng-show="updatedTask.content.$invalid" class="help-block">
+                    <font size="2"></font>This field is required!</p>
+                </div>
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="text" class="form-control" ng-disabled="true" datepicker-popup="{{format}}" ng-model="updatedTask.date"
+                        is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <button class="btn btn-default" ng-click="open($event)"></button>
+                </div>
+                <div>
+                    <div class="modal-footer ">
+                        <button class="btn btn-success" type="submit" ng-disabled="editForm.title.$invalid || editForm.category.$invalid || editForm.priority.$invalid || editForm.content.$invalid"
+                            ng-click="confirm()" $scope.selectedRow>Save</button>
+                        <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

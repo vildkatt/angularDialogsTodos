@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/modifiers.css">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <section>
+          <h2>Your tasks: </h2>
+          <div class="form-group">
+              <label for="filter">Filter by task name:</label>
+              <input ng-model="taskName" type="text" class="form-control" id="filter">
+          </div>
+          <div class="form-group">
+              <label for="filter">Filter by task category:</label>
+              <input ng-model="taskCategory" type="text" class="form-control" id="filter">
+          </div>
+          <div class="form-group">
+              <label for="filter">Filter by date:</label>
+              <input ng-model="taskDate" type="text" class="form-control" id="filter">
+          </div>
+          <div class="form-group">
+              <label for="filter">Filter by priority:</label>
+              <input ng-model="taskPriority" type="text" class="form-control" id="filter">
+          </div>
+
+      <table class="table table-bordered table-hover">
+        <tr> </span>
+          <th>
+            Title
+          </th>
+          <th>
+            Category
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Priority
+          </th>
+          <th>
+            Description
+          </th>
+        </tr>
+      <tr ng-click="setSelected(row)" ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy : '-date' | filter:{title: taskName} | filter:{category: taskCategory} | filter:{date: taskDate} | filter:{priority: taskPriority}">
+        <td>
+          <strong>{{row.title}}</strong>
+        </td>
+        <td>
+          <div class="animate-switch-container" ng-switch on="row.category">
+                                <div class="glyphicon glyphicon-flash" ng-switch-when="IT"></div>
+                                <div class="glyphicon glyphicon-heart" ng-switch-when="LIFE"></div>
+                                <div class="glyphicon glyphicon-home" ng-switch-when="HOME"></div>
+                                <div class="glyphicon glyphicon-globe" ng-switch-when="OTHER"></div>
+                                <div class="glyphicon glyphicon-tree-conifer" ng-switch-when="XMASS"></div>
+                                <span data-ng-bind="row.category"></span>
+                            </div>
+        </td>
+        <td>
+          {{row.date | date : "dd.MM.y" }}
+        </td>
+        <td>
+          {{row.priority}}
+        </td>
+        <td>
+          {{row.description}}
+        </td>
+        </tr>
+      </table>
+
+      View by <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option></select> records at a time.
+
+      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+      <hr />
+      <pager total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"></pager>
+      <hr />
+      <h5>Change page buttons:</h5>
+      <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+      <pre>Page: {{currentPage}} / {{numPages}}</pre>
+
+          <div>
+            <button ng-click="openModal()" type="button" class="btn btn-primary">Add a new task</button>
+            <button ng-click="openEditModal()" type="button" class="btn btn-danger">Edit a task</button>
+          </div>
+
+      </section>
+    </div>
+  </div>
+</body>
+</html>

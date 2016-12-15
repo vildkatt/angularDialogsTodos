@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit task</h3>
+    </div>
+    <div class="modal-body">
+      <form name="modalForm">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input ng-model="selectedTask.title" ng-required="true" type="text" class="form-control" id="editTitle">
+          </div>
+          <div class="form-group">
+            <label for="priority">Priority:</label><br>
+            <input ng-model="selectedTask.priority" type="radio" name="priority" value="1"> 1 - TOP<br>
+            <input ng-model="selectedTask.priority" type="radio" name="priority" value="2"> 2 - HIGH<br>
+            <input ng-model="selectedTask.priority" type="radio" name="priority" value="3"> 3 - MEDIUM<br>
+            <input ng-model="selectedTask.priority" type="radio" name="priority" value="4"> 4 - LOW<br>
+          </div>
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input ng-model="selectedTask.date" ng-pattern="/^\d+$/" type="text" class="form-control" id="editDate">
+          </div>
+          <div class="form-group">
+            <label for="category">Category:</label><br>
+            <input ng-model="selectedTask.category" type="radio" name="category" value="IT"> IT <br>
+            <input ng-model="selectedTask.category" type="radio" name="category" value="LIFE"> LIFE <br>
+            <input ng-model="selectedTask.category" type="radio" name="category" value="HOME"> HOME <br>
+            <input ng-model="selectedTask.category" type="radio" name="category" value="XMASS"> XMASS <br>
+            <input ng-model="selectedTask.category" type="radio" name="category" value="OTHER"> OTHER <br>
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <input ng-model="selectedTask.description" type="text" class="form-control" id="description">
+          </div>
+        </div>
+        <div class="modal-footer ">
+            <button ng-disabled="modalForm.$invalid" class="btn btn-primary" ng-click="ok()">Edit task</button>
+        </div>
+      </form>
+</div>
+</body>
+</html>

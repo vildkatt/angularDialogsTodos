@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Edit status: > <span ng-bind="data.information.title"></span></h4>
+        </div>
+
+        <form name="editTaskForm" data-ng-submit="SubmitEditForm(data.selectedTask)">
+            <div class="modal-body">
+                <input type="hidden" name="title" class="form-control" data-ng-model="data.selectedTask.title" ng-readonly="true">
+                <input type="hidden" name="id" class="form-control" data-ng-model="data.selectedTask.id" ng-readonly="true">
+                <input type="hidden" name="category" class="form-control" data-ng-model="data.selectedTask.category" ng-readonly="true">
+                <input type="hidden" name="priority" class="form-control" data-ng-model="data.selectedTask.priority" required>
+                <input type="hidden" name="description" class="form-control" data-ng-model="data.selectedTask.description" ng-readonly="true">
+                <input type="hidden" name="date" class="form-control" data-ng-model="data.selectedTask.date" ng-readonly="true">
+                <label for="selectStatus">Status</label>
+                <div class="input-group">
+                    <select id="selectStatus" class="form-control" name="statusList" ng-model="data.information.status">
+                        <option>not started</option>
+                        <option>done</option>
+                        <option>cancelled</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-ng-click="editTask(data.information)">Submit</button>
+                <button type="button" class="btn btn-warning" data-ng-click="cancel(data.information)">close</button>
+            </div>
+        </form>
+    </div>
+</body>

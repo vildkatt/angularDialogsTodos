@@ -1,0 +1,50 @@
+.selected {
+background-color:white;
+}
+
+.glyphicon.glyphicon-flash {
+  font-size: 25px;
+  color:orange;
+}
+
+.glyphicon.glyphicon-heart {
+  paddinng: 5px;
+  font-size: 25px;
+  color:red;
+}
+
+.glyphicon.glyphicon-home {
+  font-size: 25px;
+  color:black;
+}
+
+.glyphicon.glyphicon-globe {
+  font-size: 25px;
+  color:blue;
+}
+
+.glyphicon.glyphicon-tree-conifer{
+  font-size: 25px;
+  color:green;
+}
+
+td {padding: 5px;}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: blue;
+}
+
+
+.datepickerdemoBasicUsage {
+  /** Demo styles for mdCalendar. */ }
+  .datepickerdemoBasicUsage md-content {
+    padding-bottom: 200px; }
+  .datepickerdemoBasicUsage .validation-messages {
+    font-size: 12px;
+    color: #dd2c00;
+    margin-left: 15px; }

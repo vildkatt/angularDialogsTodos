@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title">Add task</h3>
+    </div>
+    <div class="modal-body">
+
+      <form name="modalForm">
+
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input ng-required="true" ng-model="addedTask.title" type="text" class="form-control" id="title">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category:</label><br>
+            <input ng-model="addedTask.category" type="radio" name="category" value="IT"> IT <br>
+            <input ng-model="addedTask.category" type="radio" name="category" value="LIFE"> LIFE <br>
+            <input ng-model="addedTask.category" type="radio" name="category" value="HOME"> HOME <br>
+            <input ng-model="addedTask.category" type="radio" name="category" value="XMASS"> XMASS <br>
+            <input ng-model="addedTask.category" type="radio" name="category" value="OTHER"> OTHER <br>
+          </div>
+
+        <!--<div class="form-group">
+          <label for="date">Date:</label>
+          <p><span class='input-group date' id='datetimepicker1'><input type='datetime-local' name="dateTimeInput" class="form-control" data-ng-model="addedTask.date"  placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00"/></span>
+                    </span>
+                </p>
+           </div> -->
+
+          <div class="form-group">
+            <label for="priority">Priority:</label><br>
+            <input ng-model="addedTask.priority" type="radio" name="priority" value="1"> 1 - TOP<br>
+            <input ng-model="addedTask.priority" type="radio" name="priority" value="2"> 2 - HIGH<br>
+            <input ng-model="addedTask.priority" type="radio" name="priority" value="3"> 3 - MEDIUM<br>
+            <input ng-model="addedTask.priority" type="radio" name="priority" value="4"> 4 - LOW<br>
+          </div>
+
+          <div class="form-group">
+            <label for="priority">Description:</label>
+            <input ng-model="addedTask.description" type="text" class="form-control" id="description">
+          </div>
+
+          <div class="form-group">
+                            <label>Date:</label>
+                            <input type="text" class="form-control" ng-disabled="true" datepicker-popup="{{format}}" ng-model="addedTask.date" is-open="opened"
+                                datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <button class="btn btn-default" ng-click="openDP($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </div>
+        </div>
+        <div class="modal-footer ">
+            <button ng-disabled="modalForm.$invalid" class="btn btn-primary" data-ng-click="ok()"> <i class="glyphicon glyphicon-ok"></i> Add task</button>
+            <button class="btn btn-danger" ng-click="cancel()"> <i class="glyphicon glyphicon-remove"></i> Cancel adding</button>
+        </div>
+      </form>
+</div>
+
+<script type="text/javascript">
+</script>
+</body>
+</html>
